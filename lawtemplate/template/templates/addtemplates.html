@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block BODY %}
+<div>
+  <form id="add-template-form" class="mt-5 p-5 w-75 mx-auto border rounded">
+    <div class="mx-5">
+      <div class="form-group">
+        <input type="text" name="template_name" class="form-control" id="template_name"
+        aria-describedby="emailHelp" placeholder="Enter Template Name">
+        <small id="emailHelp" class="form-text text-muted">
+          Enter the name/title of the Template.</small>
+      </div>
+      <div class="form-group">
+        <!-- <label for="exampleFormControlFile1">Example file input</label> -->
+        <input type="file" name="template_file" class="form-control-file" id="template_file">
+      </div>
+      <button type="submit" class="btn btn-outline-success mt-5">Save New Template</button>
+    </div>
+  </form>
+</div>
+<script>
+  $('#add-template-form').submit(
+    function(event){
+      event.preventDefault();
+      let name = $('#template_name').val();
+      let file = $('#template_file').val();
+      console.log(name, file);
+  });
+</script>
+{% endblock %}
